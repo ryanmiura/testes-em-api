@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Movie } from './movie.entity';
 import { DbService } from '../db/db.service';
 
