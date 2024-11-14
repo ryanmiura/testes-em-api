@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, NotFoundException } from '@nestjs/common';
 import { TicketsService } from './tickets.service';
 import { Ticket } from './ticket.entity';
 import { ApiTags, ApiResponse, ApiOperation } from '@nestjs/swagger';
@@ -28,16 +28,25 @@ export class TicketsController {
   @ApiResponse({ status: 200, description: 'Ticket listado com sucesso' })
   @ApiResponse({ status: 400, description: 'Requisição inválida.' })
   @ApiResponse({ status: 404, description: 'Ticket não encontrado' })
-  findOne(@Param('id') id: string) {
+
+  async findOne(@Param('id') id: string): Promise<Ticket> {
+    const ticket = await this.ticketsService.findOne(id);
+    if (!ticket) throw new NotFoundException('Ticket não encontrado.');
     return this.ticketsService.findOne(id);
   }
+
+
 
   @Put(':id')
   @ApiOperation({ summary: 'Atualizar um ticket' })
   @ApiResponse({ status: 200, description: 'Ticket atualizado com sucesso' })
   @ApiResponse({ status: 400, description: 'Requisição inválida.' })
   @ApiResponse({ status: 404, description: 'Ticket não encontrado' })
-  update(@Param('id') id: string, @Body() ticket: Ticket) {
+  async update(@Param('id') id: string, @Body() ticket: Ticket): Promise<Ticket> {
+    const updatedTicket = await this.ticketsService.update(id, ticket);
+    if(!updatedTicket){
+      throw new NotFoundException('Ticket não encontrado.')
+    }
     return this.ticketsService.update(id, ticket);
   }
 
@@ -46,7 +55,7 @@ export class TicketsController {
   @ApiResponse({ status: 200, description: 'Ticket deletado com sucesso' })
   @ApiResponse({ status: 400, description: 'Requisição inválida.' })
   @ApiResponse({ status: 404, description: 'Ticket não encontrado' })
-  remove(@Param('id') id: string) {
-    return this.ticketsService.remove(id);
+  async remove(@Param('id') id: string): Promise<void> {
+    await this.ticketsService.remove(id);
   }
 }
