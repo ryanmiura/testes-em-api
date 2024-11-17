@@ -1,3 +1,6 @@
+# Testes de Aceitação / Unitarios
+# Testes Negativos
+
 ## Plano de Testes da API do Cinema
 
 ### Objetivo
