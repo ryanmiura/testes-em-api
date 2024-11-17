@@ -4,15 +4,15 @@ Ator: Qualquer usuário da API de Filmes (para consulta) e Usuário administrado
 
 Requisitos Funcionais:
 
-1. Criando um Novo Filme:
+1. POST - Criando um Novo Filme:
 - O usuário administrador da API envia uma solicitação POST para o endpoint /movies com os detalhes do filme.
 - O sistema valida os campos obrigatórios e a unicidade do título.
 - Se as validações passarem, o sistema cria o filme e atribui um ID único.
 - O sistema retorna uma resposta de sucesso com o status 201 Created, incluindo o ID do filme.
-2. Obtendo a Lista de Filmes:
+2. GET - Obtendo a Lista de Filmes:
 - O usuário envia uma solicitação GET para o endpoint /movies.
 - O sistema retorna uma lista de todos os filmes cadastrados com detalhes.
-3. Obtendo Detalhes de um Filme por ID:
+3. GET(ID) - Obtendo Detalhes de um Filme por ID:
 - O usuário envia uma solicitação GET para o endpoint /movies/{id}, onde {id} é o ID do filme desejado.
 - O sistema verifica a existência do filme e retorna seus detalhes.
 - Se o filme não existir, o sistema retorna uma resposta de erro com o status 404 Not Found.

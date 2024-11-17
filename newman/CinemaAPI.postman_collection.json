@@ -1,0 +1,547 @@
+{
+	"info": {
+		"_postman_id": "0ca41b40-6718-47f2-aede-f653cdcbb174",
+		"name": "CinemaAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37830600"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Lista todos filmes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(100);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response schema has required fields and data types\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+									"\r",
+									"    responseData.forEach(movie => {\r",
+									"        pm.expect(movie).to.have.property('title');\r",
+									"        pm.expect(movie).to.have.property('description');\r",
+									"        pm.expect(movie).to.have.property('launchdate');\r",
+									"        pm.expect(movie).to.have.property('showtimes');\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar um novo filme",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"MR.Ninguem2\",\r\n  \"description\": \"asd\",\r\n  \"launchdate\": \"2024-11-06T19:45:58.098Z\",\r\n  \"showtimes\": \"2024-10-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista um filme",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields - title, description, launchdate, showtimes, and _id\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.property('title');",
+									"    pm.expect(responseData).to.have.property('description');",
+									"    pm.expect(responseData).to.have.property('launchdate');",
+									"    pm.expect(responseData).to.have.property('showtimes');",
+									"    pm.expect(responseData).to.have.property('_id');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Title is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"pm.test(\"Showtimes is an array with at least one element\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.showtimes).to.be.an('string').that.is.not.empty;",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/5fiOmno4rGCDOjHd",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"5fiOmno4rGCDOjHd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualiza um filme",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.property('title');",
+									"    pm.expect(responseData).to.have.property('description');",
+									"    pm.expect(responseData).to.have.property('launchdate');",
+									"    pm.expect(responseData).to.have.property('showtimes');",
+									"    pm.expect(responseData).to.have.property('_id');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Showtimes array should not be empty\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData.showtimes).to.be.an('array').that.is.not.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Title is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"title\": \"stringatt\",\r\n    \"description\": \"string\",\r\n    \"launchdate\": \"2024-11-06T19:45:58.098Z\",\r\n    \"showtimes\": [\r\n            \"string\"\r\n        ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/movies/hTbxk63gFPVoHXf4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"hTbxk63gFPVoHXf4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta um filme",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/MxRqREBnEQoGiu2u",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"MxRqREBnEQoGiu2u"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "Criar novo ticket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {",
+									"  pm.expect(pm.response.code).to.equal(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.include.all.keys('movieId', 'userId', 'seatNumber', 'price', 'showtime', '_id');",
+									"});",
+									"",
+									"",
+									"pm.test(\"SeatNumber is a non-negative integer\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.seatNumber).to.be.a('number');",
+									"  pm.expect(responseData.seatNumber).to.be.at.least(0, \"SeatNumber should be a non-negative integer\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Price is a non-negative number\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData.price).to.be.a('number');",
+									"  pm.expect(responseData.price).to.be.at.least(0);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movieId\": \"novo ticket\",\r\n  \"userId\": \"string\",\r\n  \"seatNumber\": 0,\r\n  \"price\": 0,\r\n  \"showtime\": \"2024-11-11T21:44:06.011Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/tickets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos tickets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    ",
+									"    responseData.forEach(function(ticket) {",
+									"        pm.expect(ticket).to.have.property('movieId');",
+									"        pm.expect(ticket).to.have.property('userId');",
+									"        pm.expect(ticket).to.have.property('seatNumber');",
+									"        pm.expect(ticket).to.have.property('price');",
+									"        pm.expect(ticket).to.have.property('showtime');",
+									"        pm.expect(ticket).to.have.property('_id');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"MovieId and userId are non-empty strings\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('array');",
+									"  responseData.forEach(ticket => {",
+									"    pm.expect(ticket.movieId).to.be.a('string').and.to.have.lengthOf.at.least(1, \"MovieId should not be empty\");",
+									"    pm.expect(ticket.userId).to.be.a('string').and.to.have.lengthOf.at.least(1, \"UserId should not be empty\");",
+									"  });",
+									"});",
+									"",
+									"",
+									"pm.test(\"SeatNumber and price are non-negative integers\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    ",
+									"    responseData.forEach(function(ticket) {",
+									"        pm.expect(ticket.seatNumber).to.be.a('number').and.to.be.at.least(0);",
+									"        pm.expect(ticket.price).to.be.a('number').and.to.be.at.least(0);",
+									"    });",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/tickets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar ticket por ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.to.have.status(200));",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.include.all.keys('movieId', 'userId', 'seatNumber', 'price', 'showtime', '_id');",
+									"});",
+									"",
+									"",
+									"pm.test(\"MovieId and userId are non-empty strings\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.movieId).to.be.a('string').and.to.have.lengthOf.at.least(1, \"MovieId should be a non-empty string\");",
+									"    pm.expect(responseData.userId).to.be.a('string').and.to.have.lengthOf.at.least(1, \"userId should be a non-empty string\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"SeatNumber and price are non-negative integers\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.seatNumber).to.be.a('number').and.to.be.at.least(0, \"SeatNumber should be a non-negative integer\");",
+									"    pm.expect(responseData.price).to.be.a('number').and.to.be.at.least(0, \"Price should be a non-negative integer\");",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/tickets/rZbUV8S06MqjGC4i",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tickets",
+								"rZbUV8S06MqjGC4i"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar um ticket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.property('movieId');",
+									"    pm.expect(responseData).to.have.property('userId');",
+									"    pm.expect(responseData).to.have.property('seatNumber');",
+									"    pm.expect(responseData).to.have.property('price');",
+									"    pm.expect(responseData).to.have.property('showtime');",
+									"});",
+									"",
+									"",
+									"pm.test(\"MovieId and userId should be non-empty strings\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.movieId).to.be.a('string').and.to.have.lengthOf.at.least(1, \"MovieId should be a non-empty string\");",
+									"  pm.expect(responseData.userId).to.be.a('string').and.to.have.lengthOf.at.least(1, \"userId should be a non-empty string\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"SeatNumber and price are non-negative integers\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    ",
+									"    pm.expect(responseData.seatNumber).to.be.a('number').and.to.satisfy((num) => num >= 0, \"SeatNumber should be a non-negative integer\");",
+									"    pm.expect(responseData.price).to.be.a('number').and.to.satisfy((num) => num >= 0, \"Price should be a non-negative integer\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movieId\": \"strigatualizado1000%\",\r\n  \"userId\": \"string\",\r\n  \"seatNumber\": 0,\r\n  \"price\": 0,\r\n  \"showtime\": \"2024-11-11T21:48:35.169Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/tickets/rZbUV8S06MqjGC4i",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tickets",
+								"rZbUV8S06MqjGC4i"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar um ticket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movieId\": \"strigatualizado100%\",\r\n  \"userId\": \"string\",\r\n  \"seatNumber\": 0,\r\n  \"price\": 0,\r\n  \"showtime\": \"2024-11-11T21:48:35.169Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/tickets/FPIsdAlg5RAlKUPw",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tickets",
+								"FPIsdAlg5RAlKUPw"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
