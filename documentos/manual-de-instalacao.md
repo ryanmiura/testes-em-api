@@ -22,9 +22,41 @@ Para executar a API, abra o terminal na raiz deste projeto, e digite o seguinte 
 
 ## 4. Executando Newman
 ### Execução dos testes com Newman e geração do relatório HTML
-Para executar os testes com Newman, abra o terminal na raiz deste projeto, e digite o seguinte comando.
+Para executar os testes unitarios com Newman, abra o terminal na raiz deste projeto, e digite o seguinte comando.
 
     newman run .\newman\CinemaAPI.postman_collection.json -e .\newman\Local.postman_environment.json
 Para gerar o relatório HTML, digite o seguinte comando após a execução dos testes com Newman.
 
     newman run .\newman\CinemaAPI.postman_collection.json -e .\newman\Local.postman_environment.json -r htmlextra
+
+## 5. Executando Playwright
+Para executar os testes de integração com Playwright, abra o terminal na raiz deste projeto, e digite o seguinte comando.
+
+    cd .\playwright\
+
+Execute o seguinte comando para instalar as dependencias necessarias para a execução dos testes com Playwright.
+
+    npm install
+
+Execute o seguinte comando para executar os testes com Playwright no navegador chromium e gerar o relatório HTML. 
+
+    npx playwright test --project=chromium --headed
+
+Como um teste falhou devido à um bug ele irá abrir o html reporter aumaticamente, se não aconteceu isso execute o comando:
+
+    npx playwright show-report
+
+
+## 6. Executando Cypress
+Para executar os testes End to End com Cypress, abra o terminal na raiz deste projeto, e digite o seguinte comando.
+
+
+    cd .\cypress\
+
+Execute o seguinte comando para instalar as dependencias necessarias para a execução dos testes com Cypress.
+
+    npm install
+
+Execute o seguinte comando para executar os testes com Cypress no navegador eletron e gerar o relatório HTML.
+
+    npx cypress run --spec cypress\e2e\api.spec.cy.js

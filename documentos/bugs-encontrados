@@ -17,6 +17,7 @@
 ### ROTA DELETE /Movies
 - Não está protegida por autenticação 
 - Ao excluir um filme não retorna uma mensagem de sucesso, apenas o status code 200
+- Resposta de sucesso não é igual à descrita na documentação, ele retorna 200, e está documentado 201
 
 ## Endpoint /Tickets
 ### ROTA POST /Tickets

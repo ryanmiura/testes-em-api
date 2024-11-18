@@ -7,29 +7,13 @@
 #### PB: Quality AI 1B
 #### Scrum Master: Celso Leonardo
 
-##  📝 Resumo de conteudos da SPRINT 8
-- IA, Machine Learning e Deep Learning
-- Prompts no ChatGPT
-- Criação de validações com PostBot e Postman
-- [Plano de testes](Plano-de-testes.md)
 
-## 📃 Links Uteis
-1. [**Plano de testes Atualizado com IA**](Plano-de-testes-atualizado.md)
-
-2. [**Plano de testes da sprint passada**](Plano-de-testes.md)
-
-3. [**Mapa Mental**](assets/Mapa-mental.png)
-
-3. [**Atividade Dia 2**](Dia_2/atividade.md)
-
-4. [**Atividade Dia 3**](Dia_3/atividade.md)
-
-5. [**Atividade individual Dia 4**](Dia_4/README.md)
-
-6. [**Atividade individual Dia 5**](Dia_5/README.md)
-
-
-
+## 📃 Conteudos
+### 1. [**Manual de instalação e configuração**](./documentos/manual-de-instalacao.md)
+### 2. [**Plano de testes**](./documentos/plano-de-testes.md)
+### 3. [**Melhorias feitas e sugeridas**](./documentos/melhorias.md)
+### 4. [**Bugs encontrados**](./documentos/bugs-encontrados)
+### 5. [**Documentação da API do Cinema**](./documentos/documentacao-api.md)
 
 ## Documentação da API do Cinema
 
