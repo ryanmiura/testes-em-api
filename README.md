@@ -17,6 +17,7 @@
 #### 5.1. [**Testes Unitario - Newman**](./newman/CinemaAPI.postman_collection.json)
 #### 5.2. [**Testes de Integração - Playwright**](./playwright/tests/integracao.spec.js)
 #### 5.3. [**Testes End to End - Cypress**](./cypress/cypress/e2e/api.spec.cy.js)
+### 6. [**Métricas e Resultados**](./documentos/metricas.md)
 
 ## Documentação da API do Cinema
 

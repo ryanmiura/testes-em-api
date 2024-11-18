@@ -24,5 +24,6 @@ Ao analisar o arquivo ``ticket.controller.ts``, foi possivel identificar que os 
 Para criação de usuarios, que contenha o tipo de usuario(administrador ou não) para autenticação.
 ### Endpoints /Login
 Para autenticação de usuarios, que retorna um token de acesso para o usuario, que pode ser utilizado para acessar rotas protegidas da API.
+![alt text](../assets/mapa-mental-att.png)
 ### Endpoints /Movies e /Tickets
 Campo de datas não ser do tipo string, pois além de aceitar textos, aceita datas futuras e muito antigas, o que causa inconsistência no banco de dados e dificulta uma futura implementação de buscar por datas. 
