@@ -1,5 +1,5 @@
 # Manual de instalação e configuração do projeto
-![alt text](assets/instalacao.png)
+![alt text](../assets/banners/instalacao.png)
 ## 1. Ferramentas necessarias
 
 ### 1.1 Git

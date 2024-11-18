@@ -1,5 +1,5 @@
-# SPRINT 8
-![alt text](assets/sprint8.png)
+# Testes na API Cinema
+![alt text](assets/banners/h1.png)
 ## 👦🏻 Sobre mim 
 <img src="https://media.licdn.com/dms/image/v2/D4D03AQF9dbDOzAUakA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1692820968301?e=1736985600&v=beta&t=LgqxUnnGuiQcFvvi5FxWPBQWlY3z34rcsFa3V7ohxyQ" width="100" height="100" align="right">
 
@@ -13,7 +13,10 @@
 ### 2. [**Plano de testes**](./documentos/plano-de-testes.md)
 ### 3. [**Melhorias feitas e sugeridas**](./documentos/melhorias.md)
 ### 4. [**Bugs encontrados**](./documentos/bugs-encontrados)
-### 5. [**Documentação da API do Cinema**](./documentos/documentacao-api.md)
+### 5. **TESTES**
+#### 5.1. [**Testes Unitario - Newman**](./newman/CinemaAPI.postman_collection.json)
+#### 5.2. [**Testes de Integração - Playwright**](./playwright/tests/integracao.spec.js)
+#### 5.3. [**Testes End to End - Cypress**](./cypress/cypress/e2e/api.spec.cy.js)
 
 ## Documentação da API do Cinema
 

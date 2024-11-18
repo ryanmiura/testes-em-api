@@ -1,6 +1,6 @@
 
 # Plano de Testes da API do Cinema
-
+![alt text](../assets/banners/plano.png)
 ## Objetivo
 
 O objetivo deste plano de testes é garantir que a API do Cinema funcione conforme o esperado e atenda aos requisitos especificados.

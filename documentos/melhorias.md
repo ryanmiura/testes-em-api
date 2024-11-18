@@ -1,5 +1,5 @@
 # Melhorias
-
+![alt text](../assets/banners/melhorias.png)
 ## Melhorias Feitas
 ### ``ticket.service.ts``
 Ao executar a API, fazendo chamada para o endpoint ``/tickets``, em qualquer rota que exigia o ID, constava-se uma falha no sistema, onde a requisição não retornava a resposta adequada e crashava, ao analisar o codigo foram encontrados defeitos no arquivo ``tickets.service.ts ``, nos metodos ``findOne()``, ``update()`` e ``remove()``, onde ao comparar com os metodos do arquivo ``movies.service.ts``, foi possivel identificar que os metodos de tickets não fazem uma chamada adequada do ID e também o uso incorreto das condicionais dentro dos metodos.
