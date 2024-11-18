@@ -20,7 +20,7 @@ Após a instalar as ferramentas necessarias, clone este repositorio com o seguin
 ## 3. Executando a API
 Para executar a API, abra o terminal na raiz deste projeto, e digite o seguinte comando: `cd .\nestjs-cinema\`, em seguida instale as dependencias necessarias com `npm install`. Em seguida inicie a API localmente com `npm start`, a API estará disponível em `http://localhost:3000`.
 
-## 4. Newman
+## 4. Executando Newman
 ### Execução dos testes com Newman e geração do relatório HTML
 Para executar os testes com Newman, abra o terminal na raiz deste projeto, e digite o seguinte comando.
 

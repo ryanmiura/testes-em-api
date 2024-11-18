@@ -15,7 +15,7 @@ O escopo deste plano de testes abrange todas as rotas da API, incluindo as rotas
 - Testes End to End: Com Cypress
 - Testes de peformance: Com Jmeter
 
-## Casos de Teste
+## Casos de Testes Unitarios
 
 ### Rotas de Filmes
 
@@ -37,9 +37,29 @@ O escopo deste plano de testes abrange todas as rotas da API, incluindo as rotas
 | Atualizar ingresso | Deve atualizar um ingresso existente. | PUT | /tickets/:id | ID do ingresso e dados atualizados | Ingresso atualizado |
 | Excluir ingresso | Deve excluir um ingresso. | DELETE | /tickets/:id | ID do ingresso | Ingresso excluído |
 
-## Critérios de Aceite
+## Teste de integração
+1. POST /movies -> GET /movies
+2. POST /tickets -> GET /tickets
+3. PUT /movies/:id -> GET /movies/:id
+4. PUT /tickets/:id -> GET /tickets/:id
+5. DELETE /movies/:id -> GET /movies
+6. DELETE /tickets/:id -> GET /tickets
 
-Os critérios de aceite para cada caso de teste serão definidos com base nos requisitos especificados para a API.
+## Fluxo de Teste End to End
+POST /movies -> GET /movies -> PUT /movies/:id -> GET /movies/:id -> POST /tickets -> GET /tickets -> PUT /tickets/:id -> GET /tickets/:id -> DELETE /tickets/:id -> GET /tickets -> DELETE /movies/:id -> GET /movies
+
+1. POST /movies
+2. GET /movies
+3. PUT /movies/:id
+4. GET /movies/:id
+5. POST /tickets
+6. GET /tickets
+7. PUT /tickets/:id
+8. GET /tickets/:id
+9. DELETE /tickets/:id
+10. GET /tickets
+11. DELETE /movies/:id
+12. GET /movies
 
 ## Ferramentas
 
@@ -50,14 +70,25 @@ As ferramentas a serem utilizadas para os testes incluem:
 - Cypress (para automatizar testes end to end)
 - Jmeter (para testes de carga e stress)
 
-## Cronograma
 
-O cronograma para os testes será definido com base na complexidade da API e na disponibilidade da equipe de testes.
+## Cronograma
+- 04/11/2024: Início do planejamento de testes
+- 06/11/2024: Início dos testes de unidade e integração
+- 010/11/2024: Conclusão dos testes de unidade e integração
+- 11/11/2024: Início dos testes de ponta a ponta
+- 14/11/2024: Conclusão dos testes de ponta a ponta
+- 16/11/2024: Coletando metricas e resultados
+- 18/11/2024: Entrega dos resultados
 
 ## Responsabilidades
-
-A equipe de desenvolvimento será responsável por implementar os testes de unidade e integração. A equipe de testes será responsável por implementar os testes de ponta a ponta.
+- 01 Desenvolvedor: criação da API e futuras correções de bugs
+- 01 Analista QA e testes: elaborar planejamento e fazer execução de testes
 
 ## Relatórios
 
 Os relatórios de testes serão gerados após a execução de cada fase de testes. Os relatórios incluirão informações sobre os casos de teste executados, os resultados dos testes e os defeitos encontrados.
+
+### 1. [Relatório de bugs encontrados](bugs-encontrados)
+
+### 2. [Melhorias corrigidas e sugeridas](melhorias.md)
+
