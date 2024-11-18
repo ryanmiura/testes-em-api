@@ -13,7 +13,6 @@ O escopo deste plano de testes abrange todas as rotas da API, incluindo as rotas
 - Testes Unitarios: de aceitação e negação com Postman + Newman
 - Testes de Integração: com Playwright
 - Testes End to End: Com Cypress
-- Testes de peformance: Com Jmeter
 
 ## Casos de Testes Unitarios
 

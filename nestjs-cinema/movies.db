@@ -360,3 +360,11 @@
 {"title":"Novo Filme","description":"Descrição do Novo Filme","launchdate":"2024-11-18T12:22:32.702Z","showtimes":["2024-11-18T15:00:00.000Z","2024-11-19T18:00:00.000Z"],"_id":"xhhdhWvdvNq4FnIR"}
 {"title":"Filme Atualizado","description":"Descrição Atualizada do Filme","launchdate":"2025-01-01T12:22:32.702Z","showtimes":["2025-01-01T15:00:00.000Z","2025-01-02T18:00:00.000Z"],"_id":"4uMr1YERbnJFi3T8"}
 {"$$deleted":true,"_id":"4uMr1YERbnJFi3T8"}
+{"title":"Novo Filme","description":"Descrição do Novo Filme","launchdate":"2024-11-18T12:22:32.702Z","showtimes":["2024-11-18T15:00:00.000Z","2024-11-19T18:00:00.000Z"],"_id":"oN1U6JxnSSBfvpgR"}
+{"title":"Filme Atualizado","description":"Descrição Atualizada do Filme","launchdate":"2025-01-01T12:22:32.702Z","showtimes":["2025-01-01T15:00:00.000Z","2025-01-02T18:00:00.000Z"],"_id":"5GVZdrfjUJ2ZePKi"}
+{"$$deleted":true,"_id":"5GVZdrfjUJ2ZePKi"}
+{"title":"interestelar","description":"filme de ficção astronomico","launchdate":"2022-10-20","showtimes":"2024-10-20","_id":"zPIybHOs1FrSE6d1"}
+{"$$deleted":true,"_id":"5MTWTAeGP1EOWt8A"}
+{"title":"Novo Título","description":"filme de ficção astronomico","launchdate":"2022-10-20","showtimes":"2024-10-20","_id":"5fiOmno4rGCDOjHd"}
+{"title":"MR.Ninguem2","description":"asd","launchdate":"2024-11-06T19:45:58.098Z","showtimes":"2024-10-20","_id":"9uTTTM66ayKRfxFh"}
+{"title":"stringatt","description":"string","launchdate":"2024-11-06T19:45:58.098Z","showtimes":["string"],"_id":"hTbxk63gFPVoHXf4"}
