@@ -1,0 +1,20 @@
+## Endpoint /Movies
+### ROTA POST /Movies
+- **Descrição do Bug:** Ao tentar criar um novo filme com um título já existente, o sistema não retorna um erro apropriado. Em vez disso, ele cria um novo filme com o mesmo título, o que pode levar a duplicação de dados.
+- Cria um filme com um titulo ja existente no banco de dados
+- Não está protegida por autenticação, criando um filme independente do usuario que solicitou a requisição
+- Não possui uma resposta 400 para informar que o titulo ja existe no banco de dados
+- No campo de datas, aceita qualquer strings, o que pode gerar inconsistências no banco de dados.
+
+
+### ROTA GET /Movies
+
+### ROTA PUT /Movies
+- Não está protegida por autenticação 
+- No campo de datas, aceita qualquer strings, o que pode gerar inconsistências no banco de dados.
+- Em todos os campos aceita qualquer tipo de entrada, numeros, strings vazias, sem qualquer tipo de validaçao ou mensagem de erro.
+
+### ROTA DELETE /Movies
+- Não está protegida por autenticação 
+- Não possui uma resposta 400 para informar que o titulo ja existe no banco de dados
+- No campo de datas, aceita qualquer strings, o que pode gerar inconsistências no banco de dados.

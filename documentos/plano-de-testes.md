@@ -1,23 +1,23 @@
-# Testes de Aceitação / Unitarios
-# Testes Negativos
 
-## Plano de Testes da API do Cinema
+# Plano de Testes da API do Cinema
 
-### Objetivo
+## Objetivo
 
 O objetivo deste plano de testes é garantir que a API do Cinema funcione conforme o esperado e atenda aos requisitos especificados.
 
-### Escopo
+## Escopo
 
 O escopo deste plano de testes abrange todas as rotas da API, incluindo as rotas de filmes e ingressos.
 
-### Abordagem
+## Abordagem de testes
+- Testes Unitarios: de aceitação e negação com Postman + Newman
+- Testes de Integração: com Playwright
+- Testes End to End: Com Cypress
+- Testes de peformance: Com Jmeter
 
-A abordagem de testes será baseada em testes de unidade, integração e ponta a ponta.
+## Casos de Teste
 
-### Casos de Teste
-
-#### Rotas de Filmes
+### Rotas de Filmes
 
 | Caso de Teste | Descrição | Método | Rota | Entrada | Saída Esperada |
 |---|---|---|---|---|---|
@@ -27,7 +27,7 @@ A abordagem de testes será baseada em testes de unidade, integração e ponta a
 | Atualizar filme | Deve atualizar um filme existente. | PUT | /movies/:id | ID do filme e dados atualizados | Filme atualizado |
 | Excluir filme | Deve excluir um filme. | DELETE | /movies/:id | ID do filme | Filme excluído |
 
-#### Rotas de Ingressos
+### Rotas de Ingressos
 
 | Caso de Teste | Descrição | Método | Rota | Entrada | Saída Esperada |
 |---|---|---|---|---|---|
@@ -37,25 +37,27 @@ A abordagem de testes será baseada em testes de unidade, integração e ponta a
 | Atualizar ingresso | Deve atualizar um ingresso existente. | PUT | /tickets/:id | ID do ingresso e dados atualizados | Ingresso atualizado |
 | Excluir ingresso | Deve excluir um ingresso. | DELETE | /tickets/:id | ID do ingresso | Ingresso excluído |
 
-### Critérios de Aceite
+## Critérios de Aceite
 
 Os critérios de aceite para cada caso de teste serão definidos com base nos requisitos especificados para a API.
 
-### Ferramentas
+## Ferramentas
 
 As ferramentas a serem utilizadas para os testes incluem:
 
-* Jest (para testes de unidade e integração)
-* Supertest (para testes de ponta a ponta)
+- Newman + Postman (para automatizar testes de unitarios)
+- Playwright (para automatizar testes de integração)
+- Cypress (para automatizar testes end to end)
+- Jmeter (para testes de carga e stress)
 
-### Cronograma
+## Cronograma
 
 O cronograma para os testes será definido com base na complexidade da API e na disponibilidade da equipe de testes.
 
-### Responsabilidades
+## Responsabilidades
 
 A equipe de desenvolvimento será responsável por implementar os testes de unidade e integração. A equipe de testes será responsável por implementar os testes de ponta a ponta.
 
-### Relatórios
+## Relatórios
 
 Os relatórios de testes serão gerados após a execução de cada fase de testes. Os relatórios incluirão informações sobre os casos de teste executados, os resultados dos testes e os defeitos encontrados.
