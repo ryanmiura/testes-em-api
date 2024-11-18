@@ -12,7 +12,7 @@
 ### 1. [**Manual de instalação e configuração**](./documentos/manual-de-instalacao.md)
 ### 2. [**Plano de testes**](./documentos/plano-de-testes.md)
 ### 3. [**Melhorias feitas e sugeridas**](./documentos/melhorias.md)
-### 4. [**Bugs encontrados**](./documentos/bugs-encontrados)
+### 4. [**Bugs encontrados**](./documentos/bugs-encontrados.md)
 ### 5. **TESTES**
 #### 5.1. [**Testes Unitario - Newman**](./newman/CinemaAPI.postman_collection.json)
 #### 5.2. [**Testes de Integração - Playwright**](./playwright/tests/integracao.spec.js)

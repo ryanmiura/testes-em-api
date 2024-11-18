@@ -92,3 +92,4 @@ Os relatórios de testes serão gerados após a execução de cada fase de teste
 
 ### 2. [Melhorias corrigidas e sugeridas](melhorias.md)
 
+### 2. [Metricas e Resultados](metricas.md)
